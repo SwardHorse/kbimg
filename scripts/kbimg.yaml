@@ -1,0 +1,77 @@
+# build options
+option:
+  # docker image build 
+  - image: upgrade_image
+    p: /path/to
+    v: v1
+    b: /path/to/os_agent
+    e: ’’’$1$xyz$RdLyKTL32WEvK3lg8CXID0’’’
+    d: your_imageRepository/imageName:version
+    
+  # # vitural machine image build
+  # - image: vm_image_repo
+  #   p: 
+  #   v: 
+  #   b: 
+  #   e: 
+
+  # - image: vm_image_docker
+  #   d: 
+
+  # # physical machine image build
+  # - image: pxe_image_repo
+  #   p: 
+  #   v: 
+  #   b: 
+  #   e: 
+
+  # - image: pxe_image_docker
+  #   d: 
+
+# storage config
+partition_config: 
+  boot_size: 1350
+  rootA_size: 2560
+  rootB_size: 3320
+  persist_size: 16800
+
+# you can mount other disks
+disk_config: 
+  - disk: /dev/sd1
+    mount: /persist/disk1
+
+  - disk: /dev/sd2
+    mount: /persist/disk2
+
+# file config
+file_config:
+  - type: file
+    name: fileA
+    path: /path/to/
+
+  - type: directory
+    name: directoryA
+    path: /path/to/
+
+# user config
+user_config:
+  - name: user1
+    password: 123456
+    groups: [group1]
+  
+  - name: user2
+    password: 12345
+    groups: [group1, group2]
+
+# host config
+host_config:
+  hostname: new_hostname
+grub_config:
+  password: yourpassword
+
+# systemd service config
+systemd_service_config:
+  name: example
+  start: true
+
+
